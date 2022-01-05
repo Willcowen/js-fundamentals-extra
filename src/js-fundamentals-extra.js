@@ -154,9 +154,9 @@ function checkTransactions(transacArray, startbal, overdraft) {
 
 function filmsInGenre(filmobj, filmgenre) {
   const genreArray = []
-  for (let i = 0; i < filmobj.length; i++) {
-    if (filmobj[i].genres.includes(filmgenre)) {
-      genreArray.push(filmobj[i].name)
+  for (element of filmobj) {
+    if (element.genres.includes(filmgenre)) {
+      genreArray.push(element.name)
     }
   }
   return genreArray
