@@ -7,6 +7,7 @@
 // with a reference to your function.
 //
 // TODO: write code below
+
 function secondsInHours(hours) {
   return hours * 3600
 }
@@ -25,6 +26,11 @@ function secondsInHours(hours) {
 //
 // TODO: write code below
 
+function milesTravelled(speed, minutes) {
+  const hoursTravelled = minutes / 60
+  return Math.ceil(speed * hoursTravelled)
+}
+
 
 
 // KilometersToMiles
@@ -39,6 +45,9 @@ function secondsInHours(hours) {
 //
 // TODO: write code below
 
+function kilometersToMiles(kilometers) {
+  return Math.round(kilometers / 1.6)
+}
 
 
 // MakeSentence
@@ -55,6 +64,15 @@ function secondsInHours(hours) {
 //
 // TODO: write code below
 
+function capitalizedFullStop(string) {
+  const sentence = string.charAt(0).toUpperCase() + string.slice(1)
+  const lastCharacter = string.charAt(string.length - 1)
+  if (lastCharacter === '!' || lastCharacter === '?' || lastCharacter === '.') 
+  return sentence
+  else if (lastCharacter !== '.') {
+    return sentence + '.'
+  }
+}
 
 
 // FileExtension
@@ -69,7 +87,14 @@ function secondsInHours(hours) {
 //
 // TODO: write code below
 
-
+function fileExtension(filename) {
+  for (let i = filename.length-1; i > 0; i--) {
+    if (filename[i] === '.') {
+      return filename.slice(i + 1)
+    }
+  }
+  return ''
+}
 
 // Range
 //
@@ -82,7 +107,11 @@ function secondsInHours(hours) {
 //
 // TODO: write code below
 
-
+function range(array) {
+  let sortedArray = array.sort((a,b) => a-b)
+  let differenceHighestAndLowest = (sortedArray[sortedArray.length - 1]) - sortedArray[0]
+  return differenceHighestAndLowest
+}
 
 // CheckTransactions
 //
@@ -101,7 +130,14 @@ function secondsInHours(hours) {
 //
 // TODO: write code below
 
-
+function checkTransactions(transacArray, startbal, overdraft) {
+  const transactions = transacArray.reduce((a, b) => a + b)
+  const result = overdraft + startbal + transactions
+  if (result >= 0) {
+  return true
+  }
+  return false
+}
 
 // FilmsInGenre
 //
@@ -116,6 +152,15 @@ function secondsInHours(hours) {
 //
 // TODO: write code below
 
+function filmsInGenre(filmobj, filmgenre) {
+  const genreArray = []
+  for (let i = 0; i < filmobj.length; i++) {
+    if (filmobj[i].genres.includes(filmgenre)) {
+      genreArray.push(filmobj[i].name)
+    }
+  }
+  return genreArray
+}
 
 
 // TODO: change undefined to be the name of the functions you defined
@@ -124,23 +169,23 @@ module.exports = {
   a: secondsInHours,
 
   //MilesTravelled,
-  b: undefined,  
+  b: milesTravelled,  
 
   //KilometersToMiles,
-  c: undefined, 
+  c: kilometersToMiles, 
 
   //MakeSentence
-  d: undefined, 
+  d: capitalizedFullStop, 
 
   //FileExtension
-  e: undefined,
+  e: fileExtension,
 
   //Range
-  f: undefined,
+  f: range,
 
   //CheckTransactions
-  g: undefined,
+  g: checkTransactions,
 
   //FilmsInGenre
-  h: undefined,
+  h: filmsInGenre,
 }
