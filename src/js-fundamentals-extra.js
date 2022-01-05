@@ -7,7 +7,9 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
+function secondsInHours(hours) {
+  return hours * 3600
+}
 
 
 // MilesTravelled
@@ -119,7 +121,7 @@
 // TODO: change undefined to be the name of the functions you defined
 module.exports = {
   //SecondsInHours
-  a: undefined,
+  a: secondsInHours,
 
   //MilesTravelled,
   b: undefined,  
